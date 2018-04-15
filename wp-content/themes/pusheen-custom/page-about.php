@@ -34,13 +34,14 @@
 			</article>
 			<!-- /article -->
 
+			<?php echo do_shortcode('[contact-form-7 id="33" title="Contact form 1"]'); ?>
+
 		<?php endif; ?>
 
 		</section>
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
 

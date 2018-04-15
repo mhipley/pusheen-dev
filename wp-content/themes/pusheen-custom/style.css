@@ -727,7 +727,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font: 300 11px/1.4 "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
+  font: 300 12px "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
   color: #50342B; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -793,6 +793,22 @@ input:focus {
     height: 10vw; }
 
 /* nav */
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center; }
+  .nav ul li {
+    display: block;
+    padding: 0.25em 0;
+    font-family: "Avenir-LT-W01_85-Heavy1475544";
+    text-transform: uppercase;
+    font-size: 1.8em;
+    text-align: center; }
+
 /* sidebar */
 /* footer */
 .footer {
