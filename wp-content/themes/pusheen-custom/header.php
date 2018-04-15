@@ -26,18 +26,19 @@
 	<body <?php body_class(); ?>>
 
 		<!-- wrapper -->
-		<div class="wrapper">
+		
 
 			<!-- header -->
 			<header class="header clear" role="banner">
-
+					<div class="wrapper">
 					<!-- logo -->
+					<a href="<?php echo home_url(); ?>">
 					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-wordmark">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/header-pusheen.gif" alt="Cat" class="logo-cat">
+		
 					</div>
+					</a>
 					<!-- /logo -->
 
 					<!-- nav -->
@@ -45,6 +46,7 @@
 						<?php html5blank_nav(); ?>
 					</nav>
 					<!-- /nav -->
+					</div>
 
 			</header>
 			<!-- /header -->
