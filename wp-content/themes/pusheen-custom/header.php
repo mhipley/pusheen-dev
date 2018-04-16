@@ -31,22 +31,38 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 					<div class="wrapper">
-					<!-- logo -->
 					<a href="<?php echo home_url(); ?>">
-					<div class="logo">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-wordmark">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/header-pusheen.gif" alt="Cat" class="logo-cat">
-		
-					</div>
+						<div class="logo">
+							<div class="tablewrapper">
+							  <div class="table">
+							    <div class="row">
+							      <div class="cell">
+							        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-wordmark">
+							      </div>
+							      <div class="rowspanned cell">
+							        <img src="<?php echo get_template_directory_uri(); ?>/img/header-pusheen.gif" alt="Cat" class="logo-cat">
+							      </div>
+							    </div>
+							    <div class="row">
+							      <div class="cell">
+							        <p>the cat</p>
+							      </div>
+							      <div class="empty cell"></div>
+							    </div>
+							  </div>
+							</div>
+						</div>
 					</a>
-					<!-- /logo -->
+	
 
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
 					</div>
 
 			</header>
+				<div class="wrapper">
+
+
+					<nav class="nav" role="navigation">
+						<?php html5blank_nav(); ?>
+					</nav>
+				</div>
 			<!-- /header -->

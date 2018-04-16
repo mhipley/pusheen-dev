@@ -43,6 +43,11 @@ $darkbrown: #50342B;
 	src:url("./fonts/pusheen-print.woff");
 }
 
+@font-face{
+	font-family: "Lulo";
+	src:url("./fonts/lulo.woff2");
+}
+
 /*------------------------------------*\
     GRID
 \*------------------------------------*/
@@ -78,7 +83,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Avenir-LT-W01_85-Heavy1475544", Arial, sans-serif;
+	font-family: "Lulo", Arial, sans-serif;
 }
 
 /* clear */
@@ -107,7 +112,7 @@ a {
 	transition: color .25s ease-out;
 }
 a:hover {
-	color:$pink;
+	color: $pink;
 }
 a:focus {
 	outline:0;
@@ -137,14 +142,56 @@ input:focus {
 /* header */
 .header {
 	background: $litepink;
-
+	padding: 2em 0;
 }
 /* logo */
 .logo {
-	max-width: 100%;
+	border: 1px solid blue;
+	max-width: 80%;
+	margin: 0 auto;
+
 	img {
-		display: inline-block;
 		height: 10vw;
+	}
+	p {
+		font-size: 1.8em;
+		font-family:"Lulo";
+		text-transform: uppercase;
+		&:hover {
+			color: $darkbrown;
+		}
+
+	}
+	.tablewrapper {
+		width: 100%;
+		position: relative;
+
+		.table {
+		  display: table;
+		  width: 100%;
+		}
+		.row {
+		  display: table-row;
+		}
+		.cell {
+		  border: 1px solid red;
+		  display: table-cell;
+		}
+		.cell.empty
+		{
+		  border: none;
+		  width: 33%;
+		}
+		.cell.rowspanned {
+		  position: absolute;
+		  top: 0;
+		  bottom: 0;
+		  width: 33%;
+		  img {
+		  	height: 100%;
+		  	width: auto;
+		  }
+		}
 	}
 }
 .logo-img {
@@ -162,10 +209,10 @@ input:focus {
 	    text-align: center;
 		li {
 			display: block;
-			padding: 0.25em 0;
-			font-family:"Avenir-LT-W01_85-Heavy1475544";
+			padding: 1em 0;
+			font-family:"Lulo";
 			text-transform: uppercase;
-			font-size: 1.8em;
+			font-size: 1.5em;
 			text-align: center;
 		}
 	}
