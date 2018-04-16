@@ -791,37 +791,55 @@ input:focus {
 
 /* logo */
 .logo {
-  border: 1px solid blue;
-  max-width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 63.2vw;
+  height: 18vw; }
   .logo img {
     height: 10vw; }
   .logo p {
-    font-size: 1.8em;
+    float: right;
+    font-size: 2vw;
+    margin: 1.8vw 0;
+    text-align: right;
     font-family: "Lulo";
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important; }
     .logo p:hover {
-      color: #50342B; }
+      color: #50342B !important; }
+  .logo .circle {
+    width: 1.5vw;
+    height: 1.5vw;
+    -webkit-border-radius: 1.5vw;
+    -moz-border-radius: 1.5vw;
+    border-radius: 1.5vw;
+    background: white;
+    float: left;
+    margin: 2.7vw 1.9vw 2.7vw 0; }
   .logo .tablewrapper {
+    position: relative;
     width: 100%;
-    position: relative; }
+    height: 100%; }
     .logo .tablewrapper .table {
       display: table;
-      width: 100%; }
+      width: 100%;
+      height: 100%; }
     .logo .tablewrapper .row {
       display: table-row; }
     .logo .tablewrapper .cell {
-      border: 1px solid red;
       display: table-cell; }
     .logo .tablewrapper .cell.empty {
       border: none;
-      width: 33%; }
+      width: 26vw; }
     .logo .tablewrapper .cell.rowspanned {
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 33%; }
+      width: 26vw; }
       .logo .tablewrapper .cell.rowspanned img {
+        float: right;
         height: 100%;
         width: auto; }
 
@@ -846,7 +864,10 @@ input:focus {
 /* footer */
 .footer {
   background: #ffeeed;
-  color: #a0a09f; }
+  color: #a0a09f;
+  position: fixed;
+  bottom: 0;
+  width: 100vw; }
 
 /*------------------------------------*\
     PAGES

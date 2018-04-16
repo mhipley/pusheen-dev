@@ -45,7 +45,14 @@
 							    </div>
 							    <div class="row">
 							      <div class="cell">
-							        <p>the cat</p>
+							      	<div class="circle"></div>
+							        <div class="circle"></div>
+							        <div class="circle"></div>
+							        <div class="circle"></div>
+							        <div class="circle"></div>
+							        <div class="circle"></div>
+							        <div class="circle"></div>
+							        <p> the cat</p>
 							      </div>
 							      <div class="empty cell"></div>
 							    </div>
