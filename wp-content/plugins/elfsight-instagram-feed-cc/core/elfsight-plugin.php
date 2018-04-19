@@ -104,13 +104,13 @@ if (!class_exists('ElfsightPlugin')) {
             $this->isShortcodePresent = true;
 
             $atts = $this->formatAtts($atts);
+            $widget_id = !empty($atts['id']) ? $atts['id'] : null;
 
             $defaults = array();
-
             $defaults = $this->recursiveDefaults($this->editorSettings['properties'], $defaults);
 
-            if (!empty($atts['id'])) {
-                $widget_options = $this->getWidgetOptions($atts['id']);
+            if (!empty($widget_id)) {
+                $widget_options = $this->getWidgetOptions($widget_id);
 
                 if (!$widget_options) {
                     return '';
@@ -125,7 +125,7 @@ if (!class_exists('ElfsightPlugin')) {
             }
 
             $options = shortcode_atts($defaults, $atts, str_replace('-', '_', $this->slug));
-            $options = apply_filters($this->getOptionName('shortcode_options'), $options);
+            $options = apply_filters($this->getOptionName('shortcode_options'), $options, $widget_id);
 
             $optionsString = rawurlencode(json_encode($options));
 
@@ -159,7 +159,15 @@ if (!class_exists('ElfsightPlugin')) {
 
         function registerWidget() {
             if (!empty($this->widget)) {
-                register_widget($this->widget);
+                if (!get_option($this->getOptionName('widget_hash'))) {
+                    register_widget($this->widget);
+
+                    add_option($this->getOptionName('widget_hash'), spl_object_hash($this->widget));
+                } else {
+                    global $wp_widget_factory;
+
+                    $wp_widget_factory->widgets[get_option($this->getOptionName('widget_hash'))] = $this->widget;
+                }
             }
         }
 

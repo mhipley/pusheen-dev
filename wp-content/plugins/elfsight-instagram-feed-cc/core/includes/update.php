@@ -9,6 +9,8 @@ if (!class_exists('ElfsightPluginUpdate')) {
         public $pluginSlug;
         public $slug;
         public $purchaseCode;
+        public $wpAutoUpgradeEnabled;
+        public $host;
 
         function __construct($update_url, $current_version, $plugin_slug, $purchase_code) {
             $this->updateUrl = $update_url;
@@ -18,9 +20,15 @@ if (!class_exists('ElfsightPluginUpdate')) {
 
             list($t1, $t2) = explode('/', $this->pluginSlug);
             $this->slug = str_replace('.php', '', $t2);
+            $this->optionSlug = preg_replace('/-cc$/', '', $this->slug);
+
+            $this->host = parse_url(site_url(), PHP_URL_HOST);
 
             add_filter('pre_set_site_transient_update_plugins', array(&$this, 'checkUpdate'));
             add_filter('plugins_api', array(&$this, 'checkInfo'), 10, 3);
+
+            add_filter('auto_update_plugin', array($this, 'enrollUpgrade', 10, 2));
+            add_action('upgrader_process_complete', array($this, 'completeUpgrade'), 10, 2);
         }
 
         public function checkUpdate($transient) {
@@ -29,10 +37,15 @@ if (!class_exists('ElfsightPluginUpdate')) {
             }
 
             $result = $this->getInfo('version');
-            update_option(str_replace('-', '_', $this->slug) . '_last_check_datetime', time());
+            update_option($this->getOptionName('last_check_datetime'), time());
+
+            if (!$result->verification->valid) {
+                delete_option($this->getOptionName('purchase_code'));
+                delete_option($this->getOptionName('activated'));
+            }
 
             if (is_object($result) && empty($result->error) && !empty($result->data) && version_compare($this->currentVersion, $result->data->version, '<')) {
-                update_option(str_replace('-', '_', $this->slug) . '_latest_version', $result->data->version);
+                update_option($this->getOptionName('latest_version'), $result->data->version);
                 $transient->response[$this->pluginSlug] = $result->data;
             }
 
@@ -64,7 +77,7 @@ if (!class_exists('ElfsightPluginUpdate')) {
                     'slug' => urlencode($this->slug),
                     'purchase_code' => urlencode($this->purchaseCode),
                     'version' => urlencode($this->currentVersion),
-                    'host' => !empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : get_site_url()
+                    'host' => $this->host
                 )
             );
 
@@ -79,6 +92,42 @@ if (!class_exists('ElfsightPluginUpdate')) {
             }
 
             return $result;
+        }
+
+        public function sheduleAutoUpgrade() {
+            $event = 'elfsight_plugin_auto_upgrade_' . md5($this->pluginSlug);
+
+            add_action($event, array($this, 'upgrade'));
+
+            if (wp_next_scheduled($event)) {
+                return;
+            }
+
+            wp_schedule_event(time(), 'hourly', $event);
+        }
+
+        public function enrollUpgrade($default_state, $plugin) {
+            if ($plugin->slug !== $this->slug) {
+                return $default_state;
+            }
+
+            return get_option($this->getOptionName('auto_upgrade'), 'on') === 'on' ? true : false;
+        }
+
+        public function completeUpgrade($upgrader, $options) {
+            if (
+                $options['action'] !== 'update' ||
+                $options['type'] !== 'plugin' ||
+                !in_array($this->pluginSlug, $options['plugins'])
+            ) {
+                return;
+            }
+
+            update_option($this->getOptionName('last_upgraded_at'), time());
+        }
+
+        protected function getOptionName($name) {
+            return str_replace('-', '_', $this->optionSlug) . '_' . $name;
         }
     }
 }

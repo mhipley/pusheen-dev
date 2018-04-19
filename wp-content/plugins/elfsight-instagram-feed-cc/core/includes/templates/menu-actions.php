@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) exit;
 
     <?php if ($has_new_version) {?>
         <span class="elfsight-admin-menu-actions-update-container">
-        	<span class="elfsight-admin-menu-actions-update-label elfsight-admin-tag-2"><?php _e('A new version is available', $this->textDomain); ?></span>
+        	<span class="elfsight-admin-menu-actions-update-label"><?php _e('A new version is available', $this->textDomain); ?></span>
 
         	<a class="elfsight-admin-menu-actions-update elfsight-admin-button-green elfsight-admin-button" href="<?php echo is_multisite() ? network_admin_url('update-core.php') : admin_url('update-core.php'); ?>"><?php _e('Update to', $this->textDomain); ?> <?php echo $latest_version; ?></a>
     	</span>

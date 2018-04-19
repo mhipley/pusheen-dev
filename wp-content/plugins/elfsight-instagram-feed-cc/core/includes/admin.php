@@ -80,29 +80,29 @@ if (!class_exists('ElfsightPluginAdmin')) {
         }
 
         public function registerAssets() {
-            wp_register_style('elfsight-admin', plugins_url('assets/elfsight-admin.css', $this->pluginFile), array(), $this->version);
+            wp_register_style($this->slug . '-admin', plugins_url('assets/elfsight-admin.css', $this->pluginFile), array(), $this->version);
 
             if ($this->customStyleUrl) {
-                wp_register_style('elfsight-admin-custom', $this->customStyleUrl, array('elfsight-admin'), $this->version);
+                wp_register_style($this->slug . '-admin-custom', $this->customStyleUrl, array('elfsight-admin'), $this->version);
             }
 
-            wp_register_script('elfsight-admin', plugins_url('assets/elfsight-admin.js', $this->pluginFile), array(), $this->version, true);
+            wp_register_script($this->slug . '-admin', plugins_url('assets/elfsight-admin.js', $this->pluginFile), array(), $this->version, true);
 
             if ($this->customScriptUrl) {
-                wp_register_script('elfsight-admin-custom', $this->customScriptUrl, array('jquery', 'elfsight-admin'), $this->version, true);
+                wp_register_script($this->slug . '-admin-custom', $this->customScriptUrl, array('jquery', 'elfsight-admin'), $this->version, true);
             }
         }
 
         public function enqueueAssets($hook) {
             if ($hook == $this->menuId) {
-                wp_enqueue_style('elfsight-admin');
+                wp_enqueue_style($this->slug . '-admin');
                 if ($this->customStyleUrl) {
-                    wp_enqueue_style('elfsight-admin-custom');
+                    wp_enqueue_style($this->slug . '-admin-custom');
                 }
 
-                wp_enqueue_script('elfsight-admin');
+                wp_enqueue_script($this->slug . '-admin');
                 if ($this->customScriptUrl) {
-                    wp_enqueue_script('elfsight-admin-custom');
+                    wp_enqueue_script($this->slug . '-admin-custom');
                 }
 
                 // remove emoji
@@ -129,13 +129,23 @@ if (!class_exists('ElfsightPluginAdmin')) {
             $preferences_custom_js = is_readable($custom_js_path) ? file_get_contents($custom_js_path) : '';
             $preferences_force_script_add = get_option($this->getOptionName('force_script_add'));
             $preferences_access_role = get_option($this->getOptionName('access_role'), 'admin');
+            $preferences_auto_upgrade = get_option($this->getOptionName('auto_upgrade'), 'on');
 
             // activation
             $purchase_code = get_option($this->getOptionName('purchase_code'), '');
             $activated = get_option($this->getOptionName('activated'), '') === 'true';
+            $supported_until = get_option($this->getOptionName('supported_until'), 0);
             $latest_version = get_option($this->getOptionName('latest_version'), '');
             $last_check_datetime = get_option($this->getOptionName('last_check_datetime'), '');
             $has_new_version = !empty($latest_version) && version_compare($this->version, $latest_version, '<');
+            $host = parse_url(site_url(), PHP_URL_HOST);
+
+            // support
+            $supportUrlParts = explode('#', $this->supportUrl);
+            $supportEmbedUrl = $supportUrlParts[0] . '?embed=true&purchase_code=' . $purchase_code . '#' . $supportUrlParts[1];
+
+            // upgrade
+            $last_upgraded_at = get_option($this->getOptionName('last_upgraded_at'));
 
             $activation_css_classes = '';
             if ($activated) {
@@ -212,6 +222,13 @@ if (!class_exists('ElfsightPluginAdmin')) {
                 update_option($this->getOptionName('access_role'), $_REQUEST['access_role']);
             }
 
+            // auto-upgrade
+            if (isset($_REQUEST['preferences_auto_upgrade'])) {
+                $result['success'] = true;
+
+                update_option($this->getOptionName('auto_upgrade'), $_REQUEST['preferences_auto_upgrade']);
+            }
+
             if (isset($file_content)) {
                 $uploads_dir_params = wp_upload_dir();
                 $uploads_dir = $uploads_dir_params['basedir'] . '/' . $this->slug;
@@ -243,6 +260,7 @@ if (!class_exists('ElfsightPluginAdmin')) {
 
             update_option($this->getOptionName('purchase_code'), !empty($_REQUEST['purchase_code']) ? $_REQUEST['purchase_code'] : '');
             update_option($this->getOptionName('activated'), !empty($_REQUEST['activated']) ? $_REQUEST['activated'] : '');
+            update_option($this->getOptionName('supported_until'), !empty($_REQUEST['supported_until']) ? $_REQUEST['supported_until'] : '');
         }
 
         private function getOptionName($name) {
@@ -266,14 +284,14 @@ if (!class_exists('ElfsightPluginAdmin')) {
                     'template' => $plugin_dir . implode(DIRECTORY_SEPARATOR, array('templates', 'page-edit-widget.php'))
                 ),
                 array(
-                    'id' => 'support',
-                    'menu_title' => 'Support',
-                    'template' => $plugin_dir . implode(DIRECTORY_SEPARATOR, array('templates', 'page-support.php'))
-                ),
-                array(
                     'id' => 'preferences',
                     'menu_title' => 'Preferences',
                     'template' => $plugin_dir . implode(DIRECTORY_SEPARATOR, array('templates', 'page-preferences.php'))
+                ),
+                array(
+                    'id' => 'support',
+                    'menu_title' => 'Support',
+                    'template' => $plugin_dir . implode(DIRECTORY_SEPARATOR, array('templates', 'page-support.php'))
                 ),
                 array(
                     'id' => 'activation',

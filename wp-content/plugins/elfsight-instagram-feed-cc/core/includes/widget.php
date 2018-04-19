@@ -5,20 +5,26 @@ if (!defined('ABSPATH')) exit;
 
 if (!class_exists('ElfsightWidget')) {
 	class ElfsightWidget extends WP_Widget {
-		private $configName;
-		private $configSlug;
-		private $configTextDomain;
+        private $configSlug;
+        private $configPluginName;
+        private $configDescription;
+        private $configTextDomain;
 
-		private $widgetsApi;
+        private $widgetsApi;
 
 		public function __construct($config, $widgetsApi) {
-			$this->configPluginName = $config['plugin_name'];
-			$this->configSlug = $config['slug'];
-			$this->configTextDomain = $config['text_domain'];
+            $this->configSlug = $config['slug'];
+            $this->configPluginName = $config['plugin_name'];
+            $this->configDescription = $config['description'];
+            $this->configTextDomain = $config['text_domain'];
 
-			$this->widgetsApi = $widgetsApi;
+            $this->widgetsApi = $widgetsApi;
 
-			parent::__construct($this->configSlug, $this->configPluginName);
+            parent::__construct(
+                $this->configSlug,
+                __($this->configPluginName, $this->configTextDomain),
+                array('description' => __($this->configDescription, $this->configTextDomain))
+            );
 		}
 
 		public function widget($args, $instance) {

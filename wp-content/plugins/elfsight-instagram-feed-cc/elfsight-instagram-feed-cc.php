@@ -3,7 +3,7 @@
 Plugin Name: Elfsight Instagram Feed CC
 Description: Add Instagram images to your website to engage your visitors.
 Plugin URI: https://elfsight.com/instagram-feed-instashow/wordpress/?utm_source=markets&utm_medium=codecanyon&utm_campaign=instagram-feed&utm_content=plugin-site
-Version: 3.3.0
+Version: 3.4.0
 Author: Elfsight
 Author URI: https://elfsight.com/?utm_source=markets&utm_medium=codecanyon&utm_campaign=instagram-feed&utm_content=plugins-list
 */
@@ -244,7 +244,7 @@ $elfsightInstagramFeed = new ElfsightPlugin(
 		'name' => 'Instagram Feed',
 		'description' => 'Add Instagram images to your website to engage your visitors',
 		'slug' => 'elfsight-instagram-feed',
-		'version' => '3.3.0',
+		'version' => '3.4.0',
 		'text_domain' => 'elfsight-instagram-feed',
 		'editor_settings' => $elfsight_instagram_feed_config['settings'],
 		'editor_preferences' => $elfsight_instagram_feed_config['preferences'],
@@ -257,7 +257,7 @@ $elfsightInstagramFeed = new ElfsightPlugin(
 		'vc_icon' => plugins_url('assets/img/vc-icon.png', __FILE__),
 
 		'menu_icon' => plugins_url('assets/img/menu-icon.png', __FILE__),
-		'update_url' => 'https://a.elfsight.com/updates/',
+		'update_url' => 'https://a.elfsight.com/updates/v1/',
 
 		'preview_url' => plugins_url('preview/index.html', __FILE__),
 		'observer_url' => plugins_url('preview/instagram-feed-observer.js', __FILE__),

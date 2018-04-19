@@ -793,6 +793,32 @@ input:focus {
   padding: 2em 0; }
 
 /* logo */
+main {
+  margin-bottom: 8em; }
+  main h1 {
+    overflow: hidden;
+    text-align: center; }
+  main h1:before,
+  main h1:after {
+    content: '';
+    display: block;
+    width: 1000px;
+    position: absolute;
+    top: .25em;
+    border-top: 0.5em dotted #ffeeed;
+    content: "";
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    vertical-align: middle;
+    width: 50%; }
+  main h1:before {
+    right: 0.25em;
+    margin-left: -50%; }
+  main h1:after {
+    left: 0.25em;
+    margin-right: -50%; }
+
 .logo {
   margin: 0 auto;
   width: 63.2vw;
@@ -890,6 +916,7 @@ input:focus {
 /* sidebar */
 /* footer */
 .footer {
+  z-index: 100;
   background: #ffeeed;
   color: #a0a09f;
   position: fixed;
@@ -926,7 +953,8 @@ input:focus {
     background: #a0a09f;
     color: #fff;
     text-transform: uppercase;
-    font-family: "Avenir-LT-W01_85-Heavy1475544"; }
+    font-family: "Avenir-LT-W01_85-Heavy1475544";
+    margin-left: .5em; }
   .footer .newsletter .pusheen-newsletter {
     background: url("./img/mailings-bumper.png");
     background-size: contain;
@@ -1038,6 +1066,24 @@ a img.aligncenter {
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px; }
+
+/*------------------------------------*\
+    CAROUSEL
+\*------------------------------------*/
+#carousel {
+  width: 100%;
+  height: 30vh;
+  border: 1px solid #50342B; }
+
+/*------------------------------------*\
+    INSTAGRAM
+\*------------------------------------*/
+.eapps-instagram-feed-posts-grid-load-more-text {
+  border-radius: 0 !important;
+  color: #50342B;
+  border: 1px solid #ffeeed;
+  background: white;
+  text-transform: capitalize; }
 
 /*------------------------------------*\
     PRINT

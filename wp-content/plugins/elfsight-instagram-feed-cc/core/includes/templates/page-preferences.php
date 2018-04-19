@@ -124,5 +124,24 @@ if (!defined('ABSPATH')) exit;
                 </div>
             </div>
         <?php } ?>
+
+        <div class="elfsight-admin-divider"></div>
+
+        <div class="elfsight-admin-page-preferences-option-force-script elfsight-admin-page-preferences-option">
+            <div class="elfsight-admin-page-preferences-option-info">
+                <h4 class="elfsight-admin-page-preferences-option-info-name">
+                    <label for="autoUpgrade"><?php _e('Automatic updates', $this->textDomain); ?></label>
+                </h4>
+
+                <div class="elfsight-admin-caption">
+                    <?php _e('When this option is on (recommended), this plugin\'s released updates with the new features and bug fixes will be installed to your website automatically. When it is off, you\'ll only have the option of updating manually.', $this->textDomain); ?>
+                </div>
+            </div>
+
+            <div class="elfsight-admin-page-preferences-option-input-container">
+                <input type="checkbox" name="preferences_auto_upgrade" value="true" id="autoUpgrade" class="elfsight-admin-page-preferences-option-input-toggle"<?php echo ($preferences_auto_upgrade === 'on') ? ' checked' : ''?>>
+                <label for="autoUpgrade"><i></i></label>
+            </div>
+        </div>
     </div>
 </article>

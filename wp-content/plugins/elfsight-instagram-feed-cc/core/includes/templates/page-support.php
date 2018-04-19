@@ -13,14 +13,16 @@ if (!defined('ABSPATH')) exit;
 
         <div class="elfsight-admin-page-support-blocked-message">
             <div class="elfsight-admin-page-support-blocked-message-content">
-                <div class="elfsight-admin-page-support-blocked-message-badge">Unlock</div>
+                <div class="elfsight-admin-page-support-blocked-message-badge"><?php _e('Unlock', $this->textDomain); ?></div>
 
-                <h3 class="elfsight-admin-page-support-blocked-message-title">Support section is only available for CodeCanyon clients with activated license</h3>
+                <h3 class="elfsight-admin-page-support-blocked-message-title"><?php _e('Support section is only available for CodeCanyon clients with activated license', $this->textDomain); ?></h3>
 
-                <div class="elfsight-admin-page-support-blocked-message-text">To unlock the in-plugin support, please, activate your license by entering CodeCanyon purchase code.</div>
+                <div class="elfsight-admin-page-support-blocked-message-text">
+                    <?php printf(__('To unlock the in-plugin support, please, activate your license by entering CodeCanyon purchase code of the <a href="%1$s" target="_blank">plugin</a>.', $this->textDomain), $this->productUrl); ?>
+                </div>
 
                 <div class="elfsight-admin-page-support-blocked-message-action">
-                    <a class="elfsight-admin-button-large elfsight-admin-button-black elfsight-admin-button" href="#/activation/" data-elfsight-admin-page="activation">Activate License</a>
+                    <a class="elfsight-admin-button-large elfsight-admin-button-black elfsight-admin-button" href="#/activation/" data-elfsight-admin-page="activation"><?php _e('Activate License', $this->textDomain); ?></a>
                 </div>
             </div>
 
@@ -42,44 +44,40 @@ if (!defined('ABSPATH')) exit;
         <div class="elfsight-admin-divider"></div>
 
         <div class="elfsight-admin-page-support-ticket">
-            <h4><?php _e('Before submitting a ticket, make sure that:', $this->textDomain); ?></h4>
+            <h4><?php _e('Before submitting a ticket, make sure that', $this->textDomain); ?></h4>
 
             <ul class="elfsight-admin-page-support-ticket-steps">
                 <li class="elfsight-admin-page-support-ticket-steps-item-latest-version elfsight-admin-page-support-ticket-steps-item">
-    				<span class="elfsight-admin-page-support-ticket-steps-item-icon">
-    					<span class="elfsight-admin-icon-support-latest-version elfsight-admin-icon"></span>
-    				</span>
+                    <span class="elfsight-admin-page-support-ticket-steps-item-icon">
+                        <span class="elfsight-admin-icon-support-latest-version elfsight-admin-icon"></span>
+                    </span>
 
                     <span class="elfsight-admin-page-support-ticket-steps-item-label"><?php _e('You use the latest version.', $this->textDomain); ?></span>
                 </li>
 
                 <li class="elfsight-admin-page-support-ticket-steps-item-javascript-errors elfsight-admin-page-support-ticket-steps-item">
-    				<span class="elfsight-admin-page-support-ticket-steps-item-icon">
-    					<span class="elfsight-admin-icon-support-javascript-errors elfsight-admin-icon"></span>
-    				</span>
+                    <span class="elfsight-admin-page-support-ticket-steps-item-icon">
+                        <span class="elfsight-admin-icon-support-javascript-errors elfsight-admin-icon"></span>
+                    </span>
 
                     <span class="elfsight-admin-page-support-ticket-steps-item-label"><?php _e('There are no javascript errors on your website.', $this->textDomain); ?></span>
                 </li>
 
                 <li class="elfsight-admin-page-support-ticket-steps-item-documentation elfsight-admin-page-support-ticket-steps-item">
-    				<span class="elfsight-admin-page-support-ticket-steps-item-icon">
-    					<span class="elfsight-admin-icon-support-documentation elfsight-admin-icon"></span>
-    				</span>
+                    <span class="elfsight-admin-page-support-ticket-steps-item-icon">
+                        <span class="elfsight-admin-icon-support-documentation elfsight-admin-icon"></span>
+                    </span>
 
                     <span class="elfsight-admin-page-support-ticket-steps-item-label"><?php _e('The documentation doesn\'t help.', $this->textDomain); ?></span>
                 </li>
             </ul>
 
-            <div class="elfsight-admin-page-support-ticket-submit">
-                <?php printf(__('Nothing of the above helped? <a href="%1$s" target="_blank">Open a ticket</a> at our Support Center.', $this->textDomain), $this->supportUrl); ?>
+            <h4><?php _e('Didn\'t help? Open a ticket at our Support Center', $this->textDomain); ?></h4>
+
+            <div class="elfsight-admin-page-support-ticket-iframe-container">
+                <iframe class="elfsight-admin-page-support-ticket-iframe" src="<?php echo $supportEmbedUrl ?>"></iframe>
             </div>
-
-            <!-- <h4><?php _e('Submit ticket form', $this->textDomain); ?></h4>
-
-            <iframe class="elfsight-admin-page-support-ticket-iframe" src="<?php echo $this->supportUrl ?>"></iframe> -->
         </div>
-
-        <div class="elfsight-admin-divider"></div>
 
         <div class="elfsight-admin-page-support-includes-container">
             <div class="elfsight-admin-page-support-includes">

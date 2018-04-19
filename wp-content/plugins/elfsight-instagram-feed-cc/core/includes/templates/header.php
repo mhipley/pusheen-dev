@@ -13,11 +13,15 @@ if (!defined('ABSPATH')) exit;
         <span class="elfsight-admin-tooltip-trigger">
             <span class="elfsight-admin-header-version-text"><?php _e('Version ' . $this->version, $this->textDomain); ?></span>
             
-            <?php if ($activated && !empty($last_check_datetime) && !$has_new_version): ?>
+            <?php if ($activated && !empty($last_check_datetime)): ?>
                 <span class="elfsight-admin-tooltip-content">
                     <span class="elfsight-admin-tooltip-content-inner">
-                        <b><?php _e('You have the latest version', $this->textDomain); ?></b><br>
-                        <?php printf(__('Last checked on %1$s at %2$s', $this->textDomain), date_i18n(get_option('date_format'), $last_check_datetime), date_i18n(get_option('time_format'), $last_check_datetime)); ?>
+                        <?php printf(__('Last update check on %1$s at %2$s', $this->textDomain), date_i18n(get_option('date_format'), $last_check_datetime), date_i18n(get_option('time_format'), $last_check_datetime)); ?>
+
+                        <?php if (!empty($last_upgraded_at)) {?>
+                            <br>
+                            <?php printf(__('Last updated on %1$s', $this->textDomain), date_i18n(get_option('date_format'), $last_upgraded_at)); ?>
+                        <?php } ?>
                     </span>
                 </span>
             <?php endif ?>

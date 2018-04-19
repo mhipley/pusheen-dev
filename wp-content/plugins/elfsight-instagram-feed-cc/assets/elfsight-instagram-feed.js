@@ -1,8 +1,8 @@
 /*
 
 Elfsight Instagram Feed
-Version: 3.3.0
-Release date: Thu Apr 12 2018
+Version: 3.4.0
+Release date: Wed Apr 18 2018
 
 https://elfsight.com
 

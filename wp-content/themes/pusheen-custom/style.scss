@@ -185,6 +185,37 @@ input:focus {
 }
 /* logo */
 
+main {
+	margin-bottom: 8em;
+	h1 {
+	 overflow: hidden;
+	 text-align: center;
+	}
+	h1:before,
+	h1:after {
+	    content: '';
+	    display: block;
+	    width: 1000px;
+	    position: absolute;
+	    top: .25em;
+	    border-top: .5em dotted $litepink;
+	 content: "";
+	 display: inline-block;
+	 height: 1em;
+	 position: relative;
+	 vertical-align: middle;
+	 width: 50%;
+	}
+	h1:before {
+	 right: 0.25em;
+	 margin-left: -50%;
+	}
+	h1:after {
+	 left: 0.25em;
+	 margin-right: -50%;
+	}
+}
+
 .logo {
 	margin: 0 auto;
 	width: 63.2vw;
@@ -337,6 +368,7 @@ input:focus {
 }
 /* footer */
 .footer {
+	z-index: 100;
 	background: $litepink;
 	color: $grey;
 	position: fixed;
@@ -385,6 +417,7 @@ input:focus {
 			color: $white;
 			text-transform: uppercase;
 			font-family: "Avenir-LT-W01_85-Heavy1475544";
+			margin-left: .5em;
 		}
 
 		.pusheen-newsletter {
@@ -548,6 +581,28 @@ a img.aligncenter {
 }
 .bypostauthor {
 
+}
+
+/*------------------------------------*\
+    CAROUSEL
+\*------------------------------------*/
+
+#carousel {
+	width: 100%;
+	height: 30vh;
+	border: 1px solid $darkbrown;
+}
+
+/*------------------------------------*\
+    INSTAGRAM
+\*------------------------------------*/
+
+.eapps-instagram-feed-posts-grid-load-more-text {
+    border-radius: 0 !important;
+    color: $darkbrown;
+    border: 1px solid $litepink;
+    background: white;
+    text-transform: capitalize;
 }
 
 /*------------------------------------*\

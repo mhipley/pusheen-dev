@@ -35,10 +35,18 @@ if (!class_exists('ElfsightWidgetsApi')) {
         }
 
         public function createTable() {
+            global $wpdb;
+
             $table_name = $this->getTableName();
 
             if (!function_exists('dbDelta')) {
                 require (ABSPATH . 'wp-admin/includes/upgrade.php');
+            }
+
+            if (version_compare($wpdb->db_version(), '5.5.3', '>=')) {
+                $collate = 'utf8mb4_general_ci';
+            } else {
+                $collate = 'utf8_general_ci';
             }
 
             dbDelta(
@@ -48,7 +56,7 @@ if (!class_exists('ElfsightWidgetsApi')) {
                     `time_created` varchar(10) NOT NULL,
                     `time_updated` varchar(10) NOT NULL,
                     `active` int(1) NOT NULL DEFAULT "1",
-                    `options` text COLLATE utf8mb4_general_ci NOT NULL,
+                    `options` text COLLATE ' . $collate . ' NOT NULL,
                     PRIMARY KEY (`id`)
                 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
             );
