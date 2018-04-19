@@ -6,6 +6,9 @@
 	Author URI: http://marthahipley.com
 */
 /*------------------------------------*\
+    RESPONSIVE VARIABLES
+\*------------------------------------*/
+/*------------------------------------*\
     BRAND VARIABLES
 \*------------------------------------*/
 @font-face {
@@ -842,6 +845,27 @@ input:focus {
         float: right;
         height: 100%;
         width: auto; }
+  @media (min-width: 980px) {
+    .logo {
+      width: 619px;
+      height: 176px; }
+      .logo img {
+        height: 98px; }
+      .logo p {
+        float: right;
+        font-size: 19.6px;
+        margin: 16px 0; }
+      .logo .circle {
+        width: 15px;
+        height: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        margin: 22px 18px 22px 0; }
+      .logo .tablewrapper .cell.empty {
+        width: 255px; }
+      .logo .tablewrapper .cell.rowspanned {
+        width: 255px; } }
 
 /* nav */
 .nav ul {

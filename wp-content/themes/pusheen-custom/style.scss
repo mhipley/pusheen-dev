@@ -7,6 +7,45 @@
 */
 
 /*------------------------------------*\
+    RESPONSIVE VARIABLES
+\*------------------------------------*/
+
+
+// Small tablets (portrait view)
+$screen-md-max: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 980px;
+
+// Small devices
+@mixin sm {
+   @media (max-width: #{$screen-md-max}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+/*------------------------------------*\
     BRAND VARIABLES
 \*------------------------------------*/
 
@@ -214,10 +253,56 @@ input:focus {
 		  }
 		}
 	}
-}
-.logo-img {
+
+	@include lg {
+		width: 619px;
+		height: 176px;
+
+		img {
+			height: 98px;
+		}
+		p {	
+			float: right;
+			font-size: 19.6px;
+			margin: 16px 0;
+
+		}
+		.circle {
+	     width: 15px;
+	      height: 15px;
+	      -webkit-border-radius: 15px;
+	      -moz-border-radius: 15px;
+	      border-radius: 15px;
+	      margin: 22px 18px 22px 0;
+		}
+		.tablewrapper {
+			.table {
+
+			}
+			.row {
+			}
+			.cell {
+			}
+			.cell.empty
+			{
+			  width: 255px;
+			}
+			.cell.rowspanned {
+			  width: 255px;
+			  img {
+
+			  }
+			}
+		}
+
+	}
 
 }
+
+
+
+
+
 /* nav */
 .nav {
 	ul {
