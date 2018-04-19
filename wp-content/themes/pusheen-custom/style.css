@@ -730,7 +730,8 @@
 
 /* html element 62.5% font-size for REM use */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  background: #fff; }
 
 body {
   font: 300 12px "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
@@ -894,6 +895,10 @@ main {
       .logo .tablewrapper .cell.rowspanned {
         width: 255px; } }
 
+.featured-image img {
+  width: 100%;
+  height: auto; }
+
 /* nav */
 .nav ul {
   display: flex;
@@ -953,8 +958,11 @@ main {
     background: #a0a09f;
     color: #fff;
     text-transform: uppercase;
-    font-family: "Avenir-LT-W01_85-Heavy1475544";
-    margin-left: .5em; }
+    margin-left: .5em;
+    font-family: "Lulo";
+    padding: 6px;
+    top: 1px;
+    position: relative; }
   .footer .newsletter .pusheen-newsletter {
     background: url("./img/mailings-bumper.png");
     background-size: contain;
@@ -1080,10 +1088,36 @@ a img.aligncenter {
 \*------------------------------------*/
 .eapps-instagram-feed-posts-grid-load-more-text {
   border-radius: 0 !important;
+  background: #EBB7BE;
   color: #50342B;
-  border: 1px solid #ffeeed;
-  background: white;
-  text-transform: capitalize; }
+  text-transform: uppercase;
+  margin-left: .5em;
+  font-family: "Lulo";
+  border: 0;
+  font-size: .8em;
+  padding: 1em;
+  line-height: initial; }
+
+/*------------------------------------*\
+    ABOUT
+\*------------------------------------*/
+#about input[type=text], #about textarea, #about input[type=tel], #about input[type=email] {
+  width: 100%;
+  padding: 1em;
+  background: #f2f2f2;
+  color: #50342B;
+  margin-bottom: 1em;
+  border: 0; }
+#about input[type=submit] {
+  background: #EBB7BE;
+  color: #50342B;
+  text-transform: uppercase;
+  margin-left: .5em;
+  font-family: "Lulo";
+  border: 0;
+  padding: 1em; }
+#about .submit {
+  text-align: center; }
 
 /*------------------------------------*\
     PRINT

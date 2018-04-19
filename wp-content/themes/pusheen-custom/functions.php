@@ -9,7 +9,7 @@
 	External Modules/Files
 \*------------------------------------*/
 
-// Load any external files you have here
+//include('customizer.php');
 
 /*------------------------------------*\
 	Theme Support
@@ -432,6 +432,8 @@ function create_post_type_html5()
         ) // Add Category and Post Tags support
     ));
 }
+
+
 
 /*------------------------------------*\
 	ShortCode Functions

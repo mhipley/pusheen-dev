@@ -51,6 +51,7 @@ $screen-lg-min: 980px;
 
 $white: #fff;
 $litegrey: rgba(247,247,247,1);
+$medgrey: rgba(242, 242, 242, 1);
 $grey: rgba(160,160,159,1);
 $green: #b9e1d6;
 $orange: #fdcb9e;
@@ -115,6 +116,7 @@ $darkbrown: #50342B;
 /* html element 62.5% font-size for REM use */
 html {
 	font-size:62.5%;
+	background: $white;
 }
 body {
 	font:300 12px "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
@@ -333,6 +335,13 @@ main {
 }
 
 
+.featured-image {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 
 
 
@@ -416,8 +425,11 @@ main {
 			background: $grey;
 			color: $white;
 			text-transform: uppercase;
-			font-family: "Avenir-LT-W01_85-Heavy1475544";
 			margin-left: .5em;
+			font-family: "Lulo";
+			padding: 6px;
+		    top: 1px;
+		    position: relative;
 		}
 
 		.pusheen-newsletter {
@@ -599,11 +611,51 @@ a img.aligncenter {
 
 .eapps-instagram-feed-posts-grid-load-more-text {
     border-radius: 0 !important;
-    color: $darkbrown;
-    border: 1px solid $litepink;
-    background: white;
-    text-transform: capitalize;
+		background: $pink;
+		color: $darkbrown;
+		text-transform: uppercase;
+		margin-left: .5em;
+		font-family: "Lulo";
+		border: 0;
+		font-size: .8em;
+		padding: 1em;
+		line-height: initial;
 }
+
+/*------------------------------------*\
+    ABOUT
+\*------------------------------------*/
+
+#about {
+	input[type=text], textarea, input[type=tel], input[type=email] {
+		width: 100%;
+		padding: 1em;
+		background: $medgrey;
+		color: $darkbrown;
+		margin-bottom: 1em;
+		border: 0;
+	}
+
+	input[type=submit]{
+		background: $pink;
+		color: $darkbrown;
+		text-transform: uppercase;
+		margin-left: .5em;
+		font-family: "Lulo";
+		border: 0;
+		padding: 1em;
+
+	}
+
+	.submit {
+		text-align: center;
+	}
+
+
+
+}
+
+
 
 /*------------------------------------*\
     PRINT
