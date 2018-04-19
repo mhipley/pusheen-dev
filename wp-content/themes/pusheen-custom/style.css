@@ -809,7 +809,8 @@ input:focus {
     -webkit-transition: none !important;
     -moz-transition: none !important;
     -o-transition: none !important;
-    transition: none !important; }
+    transition: none !important;
+    color: #50342B !important; }
     .logo p:hover {
       color: #50342B !important; }
   .logo .circle {
@@ -883,6 +884,8 @@ input:focus {
     text-transform: uppercase;
     font-size: 1.5em;
     text-align: center; }
+    .nav ul li.current_page_item a {
+      color: #EBB7BE !important; }
 
 /* sidebar */
 /* footer */
@@ -892,6 +895,47 @@ input:focus {
   position: fixed;
   bottom: 0;
   width: 100vw; }
+  .footer .social {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 1em 0; }
+    .footer .social li {
+      display: inline;
+      margin-left: 1.5em; }
+      .footer .social li a {
+        color: #a0a09f; }
+        .footer .social li a:hover {
+          color: #EBB7BE; }
+      .footer .social li .fa {
+        font-size: 3em; }
+    @media (max-width: 768px) {
+      .footer .social {
+        float: left; }
+        .footer .social li {
+          margin-left: 0;
+          margin-right: 1.5em; } }
+  .footer .newsletter input {
+    border: 1px solid #a0a09f;
+    padding: 8px;
+    margin: 1.2em 0; }
+  .footer .newsletter input[type=text] {
+    width: 200px;
+    color: black; }
+  .footer .newsletter input[type=button] {
+    background: #a0a09f;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Avenir-LT-W01_85-Heavy1475544"; }
+  .footer .newsletter .pusheen-newsletter {
+    background: url("./img/mailings-bumper.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 90px;
+    position: absolute;
+    top: -3.3em;
+    left: 0; }
 
 /*------------------------------------*\
     PAGES
@@ -915,18 +959,18 @@ input:focus {
     MISC
 \*------------------------------------*/
 ::selection {
-  background: #04A4CC;
-  color: #FFF;
+  background: #EBB7BE;
+  color: #fff;
   text-shadow: none; }
 
 ::-webkit-selection {
-  background: #04A4CC;
-  color: #FFF;
+  background: #EBB7BE;
+  color: #fff;
   text-shadow: none; }
 
 ::-moz-selection {
-  background: #04A4CC;
-  color: #FFF;
+  background: #EBB7BE;
+  color: #fff;
   text-shadow: none; }
 
 /*------------------------------------*\

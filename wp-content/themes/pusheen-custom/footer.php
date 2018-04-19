@@ -2,11 +2,33 @@
 			<footer class="footer" role="contentinfo">
 				<div class="wrapper">
 				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
+
 				<!-- /copyright -->
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="newsletter">
+								<div class="pusheen-newsletter">
+								</div>
+								<input type="text" name="email" placeholder="Join My Mailing List">
+								<input type="button" name="submit " value="Submit">
+
+
+							</div>
+
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<ul class="social">
+								<li><a href="" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+
+								<li><a href="" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								
+								<li><a href="" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+
+								<li><a href="" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
 				</div>
 
 			</footer>
