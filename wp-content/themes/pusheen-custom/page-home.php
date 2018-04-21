@@ -11,23 +11,17 @@
 				<?php while( have_rows('slide') ): the_row(); 
 
 					// vars
-					$type = get_sub_field('type');
-					$image = get_sub_field('image');
-					$video = get_sub_field('video');
-					$hotspots = get_sub_field('hotspots');
-
+					$slide = get_sub_field('slide');
 					?>
 
 					<li class="slide carousel-cell">
 
-							<?php if( $image): ?>
+							<?php if( $slide): ?>
 
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+								<?php echo do_shortcode($slide); ?>
 
 							<?php endif; ?>
 
-							<?php if( $hotspots): ?>
-							<?php endif; ?>
 					</li>
 
 
@@ -62,11 +56,11 @@
 
 <script>
 
-$('.slides').flickity({
-  // options
-  cellAlign: 'left',
-  contain: true
-});
+// $('.slides').flickity({
+//   // options
+//   cellAlign: 'left',
+//   contain: true
+// });
 
 
 </script>

@@ -1089,6 +1089,9 @@ a img.aligncenter {
       height: auto; }
       #carousel ul li img {
         width: 100%; }
+      #carousel ul li .imp-wrap {
+        width: 100% !important;
+        max-width: 980px !important; }
 
 /*------------------------------------*\
     INSTAGRAM

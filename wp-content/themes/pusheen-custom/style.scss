@@ -611,6 +611,10 @@ a img.aligncenter {
 			img {
 				width: 100%;
 			}
+			.imp-wrap {
+				width: 100% !important;
+				max-width: 980px !important;
+			}
 		}
 	}
 }
