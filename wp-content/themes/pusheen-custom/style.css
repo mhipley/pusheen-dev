@@ -1084,8 +1084,11 @@ a img.aligncenter {
     list-style: none;
     margin: 0;
     padding: 0; }
-    #carousel ul li img {
-      width: 100%; }
+    #carousel ul li {
+      width: 100%;
+      height: auto; }
+      #carousel ul li img {
+        width: 100%; }
 
 /*------------------------------------*\
     INSTAGRAM

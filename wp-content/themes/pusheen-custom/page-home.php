@@ -18,7 +18,7 @@
 
 					?>
 
-					<li class="slide">
+					<li class="slide carousel-cell">
 
 							<?php if( $image): ?>
 
@@ -59,3 +59,14 @@
 	</main>
 
 <?php get_footer(); ?>
+
+<script>
+
+$('.slides').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true
+});
+
+
+</script>
