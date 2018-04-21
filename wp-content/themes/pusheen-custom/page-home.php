@@ -4,6 +4,38 @@
 		<div class="row">
 
 			<div class="col-xs-12" id="carousel">
+				<?php if( have_rows('slide') ): ?>
+
+				<ul class="slides">
+
+				<?php while( have_rows('slide') ): the_row(); 
+
+					// vars
+					$type = get_sub_field('type');
+					$image = get_sub_field('image');
+					$video = get_sub_field('video');
+					$hotspots = get_sub_field('hotspots');
+
+					?>
+
+					<li class="slide">
+
+							<?php if( $image): ?>
+
+								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+
+							<?php endif; ?>
+
+							<?php if( $hotspots): ?>
+							<?php endif; ?>
+					</li>
+
+
+				<?php endwhile; ?>
+
+				</ul>
+
+			<?php endif; ?>
 			</div>
 
 		</div>
