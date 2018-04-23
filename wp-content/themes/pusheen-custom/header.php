@@ -24,10 +24,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 	</head>
 	<body <?php body_class(); ?>>

@@ -59,7 +59,7 @@ $litepink: rgba(255, 238, 237, 1);
 $pink: #EBB7BE;
 $peach: #fabeae;
 $darkbrown: #50342B;
-
+$mint: rgb(233, 247, 245);
 
 
 @font-face{
@@ -89,10 +89,11 @@ $darkbrown: #50342B;
 }
 
 /*------------------------------------*\
-    GRID
+    IMPORTS
 \*------------------------------------*/
 
 @import 'flexboxgrid';
+@import 'slick';
 
 /*------------------------------------*\
     MAIN
@@ -119,7 +120,7 @@ html {
 	background: $white;
 }
 body {
-	font:300 12px "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
+	font:300 14px "Avenir-LT-W01_35-Light1475496", Arial, sans-serif;
 	color: $darkbrown;
 }
 
@@ -601,11 +602,10 @@ a img.aligncenter {
 
 #carousel {
 	width: 100%;
-	ul {
-		list-style: none;
+	.slides {
 		margin: 0;
 		padding: 0;
-		li {
+		.slide {
 			width: 100%;
 			height: auto;
 			img {
@@ -616,6 +616,7 @@ a img.aligncenter {
 				max-width: 980px !important;
 			}
 		}
+
 	}
 }
 
@@ -663,6 +664,35 @@ a img.aligncenter {
 
 	.submit {
 		text-align: center;
+	}
+
+	.about-body {
+		background: $mint;
+		margin-top: 2em;
+    	padding-bottom: 2em;
+
+		p {
+			width: 60%;
+			min-width: 80vw;
+			margin: 0 auto;
+			text-align: center;
+			padding-bottom: 1em;
+			&:first-child {
+
+			}
+		}
+	}
+
+	.about-pusheen {
+		width: 200px;
+	    margin: 0 auto;
+	    position: relative;
+	    top: -30px;
+	    margin-bottom: -30px;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 

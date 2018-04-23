@@ -6,28 +6,29 @@
 			<div class="col-xs-12" id="carousel">
 				<?php if( have_rows('slide') ): ?>
 
-				<ul class="slides">
+				<div class="slides">
 
 				<?php while( have_rows('slide') ): the_row(); 
 
 					// vars
-					$slide = get_sub_field('slide');
+					$image_map = get_sub_field('image_map');
+					$video = get_sub_field('video');
 					?>
 
-					<li class="slide carousel-cell">
+					<div class="slide carousel-cell">
 
-							<?php if( $slide): ?>
+							<?php if( $image_map): ?>
 
-								<?php echo do_shortcode($slide); ?>
+								<?php echo do_shortcode($image_map); ?>
 
 							<?php endif; ?>
 
-					</li>
+					</div>
 
 
 				<?php endwhile; ?>
 
-				</ul>
+				</div>
 
 			<?php endif; ?>
 			</div>
@@ -55,12 +56,14 @@
 <?php get_footer(); ?>
 
 <script>
-
-// $('.slides').flickity({
-//   // options
-//   cellAlign: 'left',
-//   contain: true
-// });
-
+$( document ).ready(function() {
+	console.log("ready");
+	$(document).ready(function(){
+	  $('.slides').slick({
+	  	  arrows: true,
+	  	  infinite: false
+	  });
+	});
+});
 
 </script>
