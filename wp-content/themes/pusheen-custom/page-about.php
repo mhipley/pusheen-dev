@@ -32,10 +32,10 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h1>Contact Us</h1>
-			</div>
-		</div>
-		<div class="row">
+			<div class="form">
 				<?php echo do_shortcode('[contact-form-7 id="33" title="Contact form 1"]'); ?>
+			</div>
+			</div>
 		</div>
 	</main>
 

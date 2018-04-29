@@ -24,6 +24,8 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/"/>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 	</head>

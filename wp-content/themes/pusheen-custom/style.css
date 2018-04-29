@@ -1145,7 +1145,7 @@ main {
     float: right;
     list-style: none;
     margin: 0;
-    padding: 1em 0; }
+    padding: 1.5em 0; }
     .footer .social li {
       display: inline;
       margin-left: 1.5em; }
@@ -1154,7 +1154,7 @@ main {
         .footer .social li a:hover {
           color: #EBB7BE; }
       .footer .social li .fa {
-        font-size: 3em; }
+        font-size: 2em; }
     @media (max-width: 768px) {
       .footer .social {
         float: left; }
@@ -1347,7 +1347,7 @@ a img.aligncenter {
   padding-bottom: 2em; }
   #about .about-body p {
     width: 60%;
-    min-width: 80vw;
+    min-width: 250px;
     margin: 0 auto;
     text-align: center;
     padding-bottom: 1em; }
